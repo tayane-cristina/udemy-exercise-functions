@@ -69,7 +69,41 @@ function conta (operador, acumulador, ...numeros) { //rest operator
     }
     return acumulador;
 }
-console.log(conta('*' , 2, 10, 20, 30, 40 ,50 ))
+//console.log(conta('*' , 2, 10, 20, 30, 40 ,50 ))
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Funções calback
+
+function f1 (calback) {
+    setTimeout(() => {
+        console.log("F1")
+        if (calback) calback()
+    }, 3000);
+};
+
+function f2 (calback) {
+    setTimeout(() => {
+        console.log("F2")
+        if (calback) calback()
+    }, 2000);
+};
+
+function f3 (calback) {
+    setTimeout(() => {
+        console.log("F3")
+        if (calback) calback();
+    }, 1000);
+};
+
+f1(() => {
+    f2(() => {
+        f3(() => {
+            console.log("Olá mundo!")
+        })
+    })
+})
+
 
 
 
